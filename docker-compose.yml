@@ -1,0 +1,165 @@
+services:
+
+  # Database Service
+  mangastore-mysql-db:
+    image: mysql:5.7
+    container_name: mangastore-mysql-db
+    hostname: mangastore-mysql-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'mangastore_db'         # Database name
+      MYSQL_USER: 'mangastoreDBA'             # Database user
+      MYSQL_PASSWORD: 'MangaPass'             # Database user password
+      MYSQL_ROOT_PASSWORD: 'MangaRootPass'    # Root user password
+    ports:
+      - "3306:3306"                           # Exposing port 3306
+    expose:
+      - "3306"
+    volumes:
+      - mangastore-db-volume:/var/lib/mysql   # Persisting database data
+    networks:
+      - mangastore-app-network
+
+  # Consul Discovery Service
+  mangastore-consul-discovery:
+    hostname: mangastore-consul-discovery
+    image: consul:1.10.0
+    container_name: mangastore-consul-discovery
+    restart: always
+    ports:
+      - "8500:8500"                           # Exposing port 8500
+    networks:
+      - mangastore-app-network
+
+  # Zuul API Gateway Service
+  mangastore-zuul-api-gateway-server:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-api-gateway-service
+      args:
+        JAR_FILE: mangastore-api-gateway-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-zuul-api-gateway-server
+    container_name: mangastore-zuul-api-gateway-server
+    hostname: mangastore-zuul-api-gateway-server
+    ports:
+      - "8765:8765"                           # Exposing port 8765
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=8765
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Account Service
+  mangastore-account-service:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-account-service
+      args:
+        JAR_FILE: mangastore-account-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-account-service
+    container_name: mangastore-account-service
+    hostname: mangastore-account-service
+    ports:
+      - "4001:4001"                           # Exposing port 4001
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=4001
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Billing Service
+  mangastore-billing-service:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-billing-service
+      args:
+        JAR_FILE: mangastore-billing-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-billing-service
+    container_name: mangastore-billing-service
+    hostname: mangastore-billing-service
+    ports:
+      - "5001:5001"                           # Exposing port 5001
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=5001
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Catalog Service
+  mangastore-catalog-service:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-catalog-service
+      args:
+        JAR_FILE: mangastore-catalog-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-catalog-service
+    container_name: mangastore-catalog-service
+    hostname: mangastore-catalog-service
+    ports:
+      - "6001:6001"                           # Exposing port 6001
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=6001
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Order Service
+  mangastore-order-service:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-order-service
+      args:
+        JAR_FILE: mangastore-order-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-order-service
+    container_name: mangastore-order-service
+    hostname: mangastore-order-service
+    ports:
+      - "7001:7001"                           # Exposing port 7001
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=7001
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Payment Service
+  mangastore-payment-service:
+    build:
+      context: ./MangaStore-Backend-Springboot/mangastore-payment-service
+      args:
+        JAR_FILE: mangastore-payment-service-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+    image: mangastore-payment-service
+    container_name: mangastore-payment-service
+    hostname: mangastore-payment-service
+    ports:
+      - "8001:8001"                           # Exposing port 8001
+    networks:
+      - mangastore-app-network
+    environment:
+      - SERVER_PORT=8001
+      - ZIPKIN_HOST=mangastore-zipkin:9411
+      - SPRING_PROFILES_ACTIVE=docker
+
+  # Tracing Service (Zipkin)
+  mangastore-zipkin:
+    image: openzipkin/zipkin
+    container_name: mangastore-zipkin
+    hostname: mangastore-zipkin
+    ports:
+      - "9411:9411"                           # Exposing port 9411
+    networks:
+      - mangastore-app-network
+
+# Define named volumes
+volumes:
+  mangastore-db-volume:
+
+# Define network
+networks:
+  mangastore-app-network:
+    driver: bridge
