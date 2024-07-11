@@ -6,8 +6,8 @@ The MangaStore application employs a **microservices architecture** using Spring
 In local environments, each microservice registers with an **Eureka discovery server** , while for **Docker-based deployments**, **Consul** is used for service registration. The frontend, developed with **React**, interacts via an **NGINX server**, which functions as a reverse proxy, forwarding requests to the **Zuul API Gateway**. Zuul subsequently routes these requests to the correct microservices based on the URL path, utilizing Eureka or Consul for service discovery.
 
 
-### Project Preview Video
-[Preview MangaStore Project](Documentation/preview/PreviewMangaStoreProject.mp4)
+### Project Preview Video 
+[![Walkthrought MangaStore Project](https://img.youtube.com/vi/f_aOUzYFDnY/maxresdefault.jpg)](https://youtu.be/f_aOUzYFDnY)
 
 
 ### Service Discovery
