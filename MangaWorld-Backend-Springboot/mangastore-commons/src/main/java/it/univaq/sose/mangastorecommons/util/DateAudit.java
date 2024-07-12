@@ -27,6 +27,10 @@ public abstract class DateAudit implements Serializable {
   @Column(name = "CREATED_AT")
   private Instant createdAt;
 
+  /**
+   * Represents a date audit for tracking the last modified date of an entity.
+   * The last modified date is stored in the "UPDATED_AT" column of the database table.
+   */
   @LastModifiedDate
   @Column(name = "UPDATED_AT")
   private Instant updatedAt;

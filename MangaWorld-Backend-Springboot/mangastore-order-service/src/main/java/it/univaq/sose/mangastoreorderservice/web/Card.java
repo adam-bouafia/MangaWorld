@@ -1,3 +1,11 @@
+/**
+ * Represents a payment card used for transactions.
+ * 
+ * This class provides information about the payment method ID, card brand, and last 4 digits of the card.
+ * 
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastoreorderservice.web;
 
 import lombok.AllArgsConstructor;

@@ -21,6 +21,13 @@ public class GlobalExceptionHandler {
   @ExceptionHandler(RunTimeExceptionPlaceHolder.class)
   public ResponseEntity<ErrorResponse> handleCustomException(RunTimeExceptionPlaceHolder ex) {
 
+    /**
+     * Creates an ErrorResponse object with the provided error code and message.
+     * 
+     * @param errorCode The error code to be set in the ErrorResponse object.
+     * @param errorMessage The error message to be set in the ErrorResponse object.
+     * @return An ErrorResponse object populated with the provided error code and message.
+     */
     ErrorResponse errorResponse = populateErrorResponse("400", ex.getMessage());
     log.error("Something went wrong, Exception : " + ex.getMessage());
     ex.printStackTrace();

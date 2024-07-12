@@ -18,6 +18,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * The RoleController class handles HTTP requests related to roles in the MangaStore application.
+ */
 @RestController
 public class RoleController {
 

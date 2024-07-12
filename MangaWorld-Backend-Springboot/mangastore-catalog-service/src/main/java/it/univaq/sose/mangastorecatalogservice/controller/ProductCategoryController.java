@@ -27,8 +27,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-06
+ * Controller class for managing product categories.
  */
 @RestController
 public class ProductCategoryController {
@@ -36,6 +35,12 @@ public class ProductCategoryController {
     @Autowired
     ProductCategoryService productCategoryService;
 
+    /**
+     * Endpoint for creating a new product category.
+     *
+     * @param createProductCategoryRequest The request object containing the details of the product category to be created.
+     * @return A ResponseEntity with the HTTP status code and the location of the created resource.
+     */
     @PostMapping("/productCategory")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> createProductCategory(@RequestBody @Valid CreateProductCategoryRequest createProductCategoryRequest) {
@@ -49,6 +54,12 @@ public class ProductCategoryController {
         return ResponseEntity.created(location).build();
     }
 
+    /**
+     * Endpoint for retrieving a product category by its ID.
+     *
+     * @param productCategoryId The ID of the product category to retrieve.
+     * @return A ResponseEntity with the HTTP status code and the retrieved product category.
+     */
     @GetMapping("/productCategory/{productCategoryId}")
     public ResponseEntity<ProductCategory> getProductCategory(@PathVariable("productCategoryId") String productCategoryId) {
 
@@ -57,6 +68,12 @@ public class ProductCategoryController {
         return ResponseEntity.ok(productCategory);
     }
 
+    /**
+     * Endpoint for deleting a product category by its ID.
+     *
+     * @param productCategoryId The ID of the product category to delete.
+     * @return A ResponseEntity with the HTTP status code.
+     */
     @DeleteMapping("/productCategory/{productCategoryId}")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> deleteProductCategory(@PathVariable("productCategoryId") String productCategoryId) {
@@ -66,6 +83,12 @@ public class ProductCategoryController {
         return ResponseEntity.noContent().build();
     }
 
+    /**
+     * Endpoint for updating a product category.
+     *
+     * @param updateProductCategoryRequest The request object containing the updated details of the product category.
+     * @return A ResponseEntity with the HTTP status code.
+     */
     @PutMapping("/productCategory")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> updateProductCategory(@RequestBody @Valid UpdateProductCategoryRequest updateProductCategoryRequest) {
@@ -75,20 +98,29 @@ public class ProductCategoryController {
         return ResponseEntity.noContent().build();
     }
 
+    /**
+     * Endpoint for retrieving all product categories.
+     *
+     * @param sort     The sorting criteria for the product categories (optional).
+     * @param page     The page number for pagination (optional).
+     * @param size     The page size for pagination (optional).
+     * @param assembler The PagedResourcesAssembler for creating the response with pagination links.
+     * @return A ResponseEntity with the HTTP status code and the paged response of product categories.
+     */
     @GetMapping(value = "/productCategories", produces = "application/json")
     public ResponseEntity<?> getAllProductCategories(@RequestParam(value = "sort", required = false) String sort,
                                                      @RequestParam(value = "page", required = false) Integer page,
                                                      @RequestParam(value = "size", required = false) Integer size,
                                                      PagedResourcesAssembler<ProductCategory> assembler) {
-    
+
         Page<ProductCategory> list = productCategoryService.getAllProductCategories(sort, page, size);
-    
+
         Link link = new Link(ServletUriComponentsBuilder.fromCurrentRequest()
-                                                        .build()
-                                                        .toUriString());
+                .build()
+                .toUriString());
 
         PagedModel<EntityModel<ProductCategory>> resource = assembler.toModel(list, link);
-    
+
         ProductCategoriesPagedResponse productCategoriesPagedResponse = new ProductCategoriesPagedResponse();
         productCategoriesPagedResponse.setPage(list);
 
@@ -111,7 +143,7 @@ public class ProductCategoryController {
         if (resource.getLink("last").isPresent()) {
             productCategoriesPagedResponse.get_links().put("last", resource.getLink("last").get().getHref());
         }
-    
+
         return ResponseEntity.ok(productCategoriesPagedResponse);
 
     }

@@ -12,12 +12,16 @@ import java.util.Objects;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-07-02
+*
  */
 
 /*
 This is required for Feign clients to make request to services.
 It takes the token from header and set the header in the feign request header.
+ */
+/**
+ * This class is an implementation of the RequestInterceptor interface and is responsible for forwarding the Authorization header from the incoming request to the outgoing request template.
+ * It intercepts the request and adds the Authorization header to the request template.
  */
 @Component
 public class AuthForwardInterceptor implements RequestInterceptor {

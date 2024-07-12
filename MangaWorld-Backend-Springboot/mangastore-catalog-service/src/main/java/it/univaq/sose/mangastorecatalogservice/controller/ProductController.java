@@ -28,8 +28,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-06
+ * Controller class for managing products.
  */
 @RestController
 @CrossOrigin
@@ -38,6 +37,12 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * Endpoint for creating a new product.
+     *
+     * @param createProductRequest The request object containing the details of the product to be created.
+     * @return A ResponseEntity with the HTTP status code and the URI of the created product.
+     */
     @PostMapping("/product")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> createProduct(@RequestBody @Valid CreateProductRequest createProductRequest){
@@ -51,6 +56,12 @@ public class ProductController {
         return ResponseEntity.created(location).build();
     }
 
+    /**
+     * Endpoint for retrieving a product by its ID.
+     *
+     * @param productId The ID of the product to retrieve.
+     * @return A ResponseEntity with the HTTP status code and the retrieved product.
+     */
     @GetMapping("/product/{productId}")
     public ResponseEntity<ProductResponse> getProduct(@PathVariable("productId") String productId) {
 
@@ -59,6 +70,12 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
+    /**
+     * Endpoint for deleting a product by its ID.
+     *
+     * @param productId The ID of the product to delete.
+     * @return A ResponseEntity with the HTTP status code.
+     */
     @DeleteMapping("/product/{productId}")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> deleteProductCategory(@PathVariable("productId") String productId) {
@@ -68,6 +85,12 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
+    /**
+     * Endpoint for updating a product.
+     *
+     * @param updateProductRequest The request object containing the updated details of the product.
+     * @return A ResponseEntity with the HTTP status code.
+     */
     @PutMapping("/product")
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     public ResponseEntity<?> updateProduct(@RequestBody @Valid UpdateProductRequest updateProductRequest) {
@@ -77,7 +100,15 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-
+    /**
+     * Endpoint for retrieving all products.
+     *
+     * @param sort The sorting criteria for the products (optional).
+     * @param page The page number for pagination (optional).
+     * @param size The number of products per page for pagination (optional).
+     * @param assembler The PagedResourcesAssembler for creating the paged response.
+     * @return A ResponseEntity with the HTTP status code and the paged response of products.
+     */
     @GetMapping(value = "/products", produces = "application/json")
     public ResponseEntity<?> getAllProducts(@RequestParam(value = "sort", required = false) String sort,
                                             @RequestParam(value = "page", required = false) Integer page,
@@ -85,12 +116,12 @@ public class ProductController {
                                             PagedResourcesAssembler<ProductResponse> assembler) {
 
         Page<ProductResponse> list = productService.getAllProducts(sort, page, size);
-    
+
         Link link = new Link(ServletUriComponentsBuilder.fromCurrentRequest().build()
                                                         .toUriString());
 
         PagedModel<EntityModel<ProductResponse>> resource = assembler.toModel(list, link);
-    
+
         ProductsPagedResponse productsPagedResponse = new ProductsPagedResponse();
         productsPagedResponse.setPage(list);
 
@@ -113,7 +144,7 @@ public class ProductController {
         if (resource.getLink("last").isPresent()) {
             productsPagedResponse.get_links().put("last", resource.getLink("last").get().getHref());
         }
-    
+
         return ResponseEntity.ok(productsPagedResponse);
 
     }

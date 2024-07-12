@@ -15,7 +15,11 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
-@author Adam Bouafia, Date : 29-06-2024
+ * The ReviewController class handles HTTP requests related to reviews.
+ * It provides endpoints for creating or updating a review, and retrieving all reviews for a product.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
  */
 @RestController
 public class ReviewController {
@@ -23,13 +27,24 @@ public class ReviewController {
     @Autowired
     ReviewService reviewService;
 
+    /**
+     * Endpoint for creating or updating a review.
+     *
+     * @param createOrUpdateReviewRequest The request object containing the review details.
+     * @return ResponseEntity with no content if the review is created or updated successfully.
+     */
     @PostMapping("/review")
     public ResponseEntity<?> createOrUpdateReview(@RequestBody @Valid CreateOrUpdateReviewRequest createOrUpdateReviewRequest) {
-
         reviewService.createOrUpdateReview(createOrUpdateReviewRequest);
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Endpoint for retrieving all reviews for a product.
+     *
+     * @param productId The ID of the product.
+     * @return ResponseEntity with a list of Review objects representing the reviews for the product.
+     */
     @GetMapping("/review")
     public ResponseEntity<?> getAllReviewsForProduct(@RequestParam("productId") String productId) {
         List<Review> reviewsForProduct = reviewService.getReviewsForProduct(productId);

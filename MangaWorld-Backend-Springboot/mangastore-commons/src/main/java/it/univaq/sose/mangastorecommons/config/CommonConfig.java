@@ -1,3 +1,10 @@
+/**
+ * Configuration class for common settings in the MangaStore application.
+ * This class provides bean definitions for DozerBeanMapper.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastorecommons.config;
 
 import org.dozer.DozerBeanMapper;

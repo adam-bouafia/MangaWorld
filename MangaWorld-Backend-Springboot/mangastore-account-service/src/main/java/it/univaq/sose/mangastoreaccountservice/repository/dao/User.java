@@ -24,6 +24,9 @@ import org.hibernate.annotations.GenericGenerator;
  * @author: Adam Bouafia, Date : 07-01-2024
  */
 
+/**
+ * Represents a user in the system.
+ */
 @Entity
 @Getter
 @Setter

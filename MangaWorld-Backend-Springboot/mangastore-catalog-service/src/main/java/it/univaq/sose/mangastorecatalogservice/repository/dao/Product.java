@@ -22,7 +22,11 @@ import javax.persistence.Table;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-04
+*
+ */
+/**
+ * Represents a product in the catalog.
+ * This class extends the DateAudit class and provides information about the product, such as its ID, name, description, price, image ID, category, and available item count.
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

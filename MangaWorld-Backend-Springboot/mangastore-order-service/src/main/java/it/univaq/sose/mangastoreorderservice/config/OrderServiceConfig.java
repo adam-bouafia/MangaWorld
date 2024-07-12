@@ -7,12 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-07-01
+ * Configuration class for the Order Service.
  */
 @Configuration
 public class OrderServiceConfig {
 
+    /**
+     * Creates a load-balanced RestTemplate bean.
+     * @return the RestTemplate bean
+     */
     @LoadBalanced
     @Bean
     RestTemplate restTemplate() {

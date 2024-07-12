@@ -9,6 +9,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @author: Adam Bouafia, Date : 07-01-2024
 
  */
+/**
+ * The main class for the MangaStore API Gateway Service application.
+ * This class is responsible for starting the application and enabling the necessary features.
+ */
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient

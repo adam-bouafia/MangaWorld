@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Represents a request to create an OAuth client.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

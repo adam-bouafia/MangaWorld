@@ -1,3 +1,10 @@
+/**
+ * Represents the response object for previewing an order.
+ * Contains information about the order items, shipping and billing addresses, card details, and pricing.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastoreorderservice.web;
 
 import it.univaq.sose.mangastorecommons.web.GetAddressResponse;

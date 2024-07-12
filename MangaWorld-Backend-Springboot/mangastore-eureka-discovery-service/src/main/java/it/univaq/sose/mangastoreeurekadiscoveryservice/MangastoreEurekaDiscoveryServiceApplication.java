@@ -1,3 +1,9 @@
+/**
+ * This class represents the main application for the MangaStore Eureka Discovery Service.
+ * It enables the Eureka server and starts the Spring Boot application.
+ * 
+ * @author Adam Bouafia
+ */
 package it.univaq.sose.mangastoreeurekadiscoveryservice;
 
 import org.springframework.boot.SpringApplication;

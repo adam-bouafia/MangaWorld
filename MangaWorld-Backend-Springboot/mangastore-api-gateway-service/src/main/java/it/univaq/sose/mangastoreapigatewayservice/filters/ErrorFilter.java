@@ -15,6 +15,10 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 /**
 @author Adam Bouafia, Date : 29-06-2024
  */
+/**
+ * This class represents an error filter for the API gateway service.
+ * It extends the ZuulFilter class and is responsible for handling errors that occur during the request processing.
+ */
 @Component
 public class ErrorFilter extends ZuulFilter {
     private static final Logger LOG = LoggerFactory.getLogger(ErrorFilter.class);

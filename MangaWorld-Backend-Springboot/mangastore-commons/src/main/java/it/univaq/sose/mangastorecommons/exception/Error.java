@@ -6,7 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
+ * Represents an error in the MangaStore application.
+ * An Error object contains a code and a message describing the error.
+ * 
+ * @author Adam Bouafia
+ * @date 07-01-2024
  */
 @Data
 @AllArgsConstructor
@@ -14,6 +18,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Error {
 
+  /**
+   * The error code.
+   */
   private String code;
+
+  /**
+   * The error message.
+   */
   private String message;
 }

@@ -9,6 +9,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
+/**
+ * Configuration class for the Resource Server.
+ * This class extends the ResourceServerConfigurerAdapter class and provides configuration for the resource server.
+ */
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -16,11 +20,25 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
   @Autowired
   private ResourceServerTokenServices tokenServices;
 
+  /**
+   * Configures the resource server security.
+   * Sets the resource id and token services for the resource server.
+   *
+   * @param resources the ResourceServerSecurityConfigurer object
+   * @throws Exception if an error occurs during configuration
+   */
   @Override
   public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
     resources.resourceId("web").tokenServices(tokenServices);
   }
 
+  /**
+   * Configures the HTTP security for the resource server.
+   * Sets up CORS, disables frame options, and configures request matchers and authorization rules.
+   *
+   * @param http the HttpSecurity object
+   * @throws Exception if an error occurs during configuration
+   */
   @Override
   public void configure(HttpSecurity http) throws Exception {
     http

@@ -17,11 +17,18 @@ import java.util.Optional;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-06
+*
+ */
+/**
+ * This class implements the {@link ProductCategoryService} interface and provides the implementation
+ * for managing product categories.
  */
 @Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 
+    /**
+     * Autowires the ProductCategoryRepository dependency to the ProductCategoryServiceImpl class.
+     */
     @Autowired
     ProductCategoryRepository productCategoryRepository;
 

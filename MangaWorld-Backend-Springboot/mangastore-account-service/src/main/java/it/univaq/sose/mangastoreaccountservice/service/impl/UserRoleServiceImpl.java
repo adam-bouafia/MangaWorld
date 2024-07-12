@@ -22,6 +22,10 @@ import org.springframework.stereotype.Service;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class implements the UserRoleService interface and provides the implementation for mapping users to roles,
+ * removing roles from users, and mapping roles to users.
+ */
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
 

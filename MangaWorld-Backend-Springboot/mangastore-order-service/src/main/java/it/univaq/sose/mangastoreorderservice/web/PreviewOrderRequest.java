@@ -1,3 +1,10 @@
+/**
+ * Represents a request to preview an order.
+ * Contains information about the billing address, shipping address, and payment method.
+ * 
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastoreorderservice.web;
 
 import lombok.AllArgsConstructor;

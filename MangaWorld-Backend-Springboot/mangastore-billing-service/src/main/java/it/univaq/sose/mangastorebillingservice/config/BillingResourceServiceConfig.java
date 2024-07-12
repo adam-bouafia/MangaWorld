@@ -7,8 +7,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-20
+ * Configuration class for the billing resource service.
+ * Extends the GlobalResourceServerConfig class to configure the resource server.
  */
 @Configuration
 public class BillingResourceServiceConfig extends GlobalResourceServerConfig {
@@ -16,6 +16,12 @@ public class BillingResourceServiceConfig extends GlobalResourceServerConfig {
     @Autowired
     private ResourceServerTokenServices tokenServices;
     
+    /**
+     * Configures the resource server security.
+     * Sets the resource ID and token services for the resources.
+     * 
+     * @param resources the ResourceServerSecurityConfigurer object to configure the resource server security
+     */
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.resourceId("web").tokenServices(tokenServices);

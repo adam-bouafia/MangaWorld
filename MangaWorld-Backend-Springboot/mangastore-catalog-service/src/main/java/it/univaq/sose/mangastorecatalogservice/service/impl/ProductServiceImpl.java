@@ -25,7 +25,11 @@ import java.util.Optional;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-06
+*
+ */
+/**
+ * This class implements the ProductService interface and provides the implementation for various product-related operations.
+ * It interacts with the ProductRepository, ProductCategoryRepository, ReviewService, and ReviewRepository to perform CRUD operations on products.
  */
 @Service
 public class ProductServiceImpl implements ProductService {

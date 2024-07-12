@@ -16,6 +16,10 @@ import org.springframework.stereotype.Service;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class implements the {@link AppUserDetailsService} interface and provides the implementation
+ * for loading user details by username or email.
+ */
 @Service
 public class AppUserDetailsServiceImpl implements AppUserDetailsService {
 

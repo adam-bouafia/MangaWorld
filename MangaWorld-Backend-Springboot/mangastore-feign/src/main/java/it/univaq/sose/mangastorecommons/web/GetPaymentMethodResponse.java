@@ -1,3 +1,10 @@
+/**
+ * Represents the response object for retrieving payment methods.
+ * Contains information about a specific payment method.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastorecommons.web;
 
 import lombok.AllArgsConstructor;

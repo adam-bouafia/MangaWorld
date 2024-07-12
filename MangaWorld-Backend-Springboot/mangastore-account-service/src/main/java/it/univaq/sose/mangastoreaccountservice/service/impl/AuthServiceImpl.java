@@ -26,6 +26,11 @@ import it.univaq.sose.mangastoreaccountservice.repository.dao.User;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class implements the AuthService interface and provides the implementation for the authentication and user registration functionality.
+ * It uses various autowired dependencies such as passwordEncoder, userRepository, roleRepository, oAuthClientRepository, and authenticationManager.
+ * The class also defines private fields for keyStore, keyStorePassword, keyPairAlias, keyPairPassword, and publicKey, which are used for JWT token generation.
+ */
 @Service
 public class AuthServiceImpl implements AuthService {
 

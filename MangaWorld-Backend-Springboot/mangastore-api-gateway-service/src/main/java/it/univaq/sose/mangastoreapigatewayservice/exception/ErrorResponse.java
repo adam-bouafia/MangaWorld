@@ -1,3 +1,7 @@
+/**
+ * Represents an error response object.
+ * Contains a unique identifier (UUID) and a list of errors.
+ */
 package it.univaq.sose.mangastoreapigatewayservice.exception;
 
 import lombok.AllArgsConstructor;

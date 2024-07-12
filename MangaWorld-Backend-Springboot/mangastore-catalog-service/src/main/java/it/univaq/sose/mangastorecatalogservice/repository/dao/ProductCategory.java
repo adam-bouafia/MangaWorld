@@ -19,7 +19,11 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-04
+*
+ */
+/**
+ * Represents a product category in the MangaStore catalog.
+ * This class extends the DateAudit class to inherit the created and updated timestamps.
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class is a controller advice that handles exceptions thrown by the account service.
+ * It extends the GlobalExceptionHandler class.
+ * It provides exception handling methods for different types of exceptions.
+ */
 @ControllerAdvice
 @Slf4j
 public class AccountServiceExceptionHandler extends GlobalExceptionHandler {

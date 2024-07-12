@@ -1,3 +1,10 @@
+/**
+ * Represents a response object containing information about a product.
+ * This class is used to transfer product data from the backend to the frontend.
+ * 
+ * @author Adam Bouafia
+ * @date 07-01-2024
+ */
 package it.univaq.sose.mangastorecommons.web;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-04
+*
  */
 @Data
 @Builder

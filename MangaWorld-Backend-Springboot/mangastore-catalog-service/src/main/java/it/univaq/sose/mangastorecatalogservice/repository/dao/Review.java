@@ -19,6 +19,10 @@ import javax.validation.constraints.Min;
 /**
 @author Adam Bouafia, Date : 29-06-2024
  */
+/**
+ * Represents a review for a product in the MangaStore catalog.
+ * Inherits from the DateAudit class.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity

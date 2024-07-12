@@ -1,3 +1,10 @@
+/**
+ * Represents the response object for creating a cart.
+ * Contains the cart ID.
+ * 
+ * @author Adam Bouafia
+ * @date 07-01-2024
+ */
 package it.univaq.sose.mangastoreorderservice.web;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-07-13
+ * 
  */
 @Data
 @NoArgsConstructor

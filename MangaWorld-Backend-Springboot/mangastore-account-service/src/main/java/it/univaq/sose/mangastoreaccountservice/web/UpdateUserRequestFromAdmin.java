@@ -12,21 +12,37 @@ import java.util.List;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Represents a request object used for updating user information by an admin.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateUserRequestFromAdmin {
 
-    @Size(max = 40, message = "First Name length should not be grater than 40 characters")
+    /**
+     * The first name of the user.
+     * Should not exceed 40 characters in length.
+     */
+    @Size(max = 40, message = "First Name length should not be greater than 40 characters")
     private String firstName;
 
+    /**
+     * The last name of the user.
+     */
     private String lastName;
 
-    @Size(max = 40, message = "email length should not be grater than 40 characters")
+    /**
+     * The email address of the user.
+     * Should not exceed 40 characters in length and should be a valid email address.
+     */
+    @Size(max = 40, message = "Email length should not be greater than 40 characters")
     @Email
     private String email;
 
+    /**
+     * The roles assigned to the user.
+     */
     private List<String> roles = new ArrayList<>();
-
 
 }

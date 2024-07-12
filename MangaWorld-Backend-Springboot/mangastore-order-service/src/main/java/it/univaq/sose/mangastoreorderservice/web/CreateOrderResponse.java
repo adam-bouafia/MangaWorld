@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-20
+ * 
  */
 @Data
 @NoArgsConstructor
@@ -27,6 +27,10 @@ public class CreateOrderResponse {
     private OrderShippingAddress shippingAddress;
     private OrderBillingAddress billingAddress;
     private Card card;
+    /**
+     * Represents the response object for creating an order.
+     * Contains the total price of the items in the order.
+     */
     private Double itemsTotalPrice;
     private Double taxPrice;
     private Double shippingPrice;

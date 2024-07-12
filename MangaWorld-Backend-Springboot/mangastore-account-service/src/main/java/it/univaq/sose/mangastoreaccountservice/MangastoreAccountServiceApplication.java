@@ -11,6 +11,10 @@ import org.springframework.context.annotation.FilterType;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * The main class for the MangaStore Account Service application.
+ * This class is responsible for starting the application and initializing the necessary components.
+ */
 @SpringBootApplication
 @ComponentScan(basePackages = {"it.univaq.sose"}, excludeFilters = {
     @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = GlobalResourceServerConfig.class)})

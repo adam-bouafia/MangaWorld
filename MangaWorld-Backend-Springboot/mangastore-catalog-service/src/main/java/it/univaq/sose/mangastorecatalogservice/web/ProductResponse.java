@@ -1,3 +1,11 @@
+/**
+ * Represents a response object for a product.
+ * Contains information about a product, such as its ID, name, description, price, category, availability, ratings, and image ID.
+ * This class is used to transfer product data between the backend and frontend of the MangaStore application.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastorecatalogservice.web;
 
 import lombok.AllArgsConstructor;

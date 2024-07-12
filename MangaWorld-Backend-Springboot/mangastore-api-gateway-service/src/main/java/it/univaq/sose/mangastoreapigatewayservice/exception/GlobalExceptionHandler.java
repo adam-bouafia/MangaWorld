@@ -13,6 +13,11 @@ import java.util.UUID;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class is a global exception handler for handling different types of exceptions in the application.
+ * It provides methods to handle custom exceptions and generic exceptions.
+ */
+
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {

@@ -32,6 +32,10 @@ import java.util.stream.Collectors;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class implements the UserService interface and provides the implementation for various user-related operations.
+ * It interacts with the UserRepository, RoleRepository, and UserRoleService to perform CRUD operations on users and their roles.
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

@@ -1,5 +1,9 @@
 package it.univaq.sose.mangastoreaccountservice.config;
 
+/**
+ * This class represents the configuration for the Account Service in the MangaStore application.
+ * It is annotated with @Configuration to indicate that it is a configuration class.
+ */
 import org.springframework.context.annotation.Configuration;
 
 /**

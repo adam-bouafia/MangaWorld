@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class is a controller that handles the mapping of users to roles and roles to users.
+ * It provides endpoints for mapping users to roles and roles to users.
+ */
 @RestController
 public class UserRoleController {
 

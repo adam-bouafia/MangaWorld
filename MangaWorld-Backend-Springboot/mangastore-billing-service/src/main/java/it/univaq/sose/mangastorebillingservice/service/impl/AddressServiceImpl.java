@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author: Adam Bouafia, Date : 07-01-2024
+ * Service implementation for managing addresses.
  */
 @Service
 public class AddressServiceImpl implements AddressService {
@@ -25,6 +25,11 @@ public class AddressServiceImpl implements AddressService {
     @Autowired
     AddressRepository addressRepository;
 
+    /**
+     * Creates a new address.
+     *
+     * @param createAddressRequest The request object containing the address details.
+     */
     @Override
     public void createAddress(CreateAddressRequest createAddressRequest) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -42,18 +47,19 @@ public class AddressServiceImpl implements AddressService {
                 .build();
 
         addressRepository.save(addressDao);
-
     }
 
-
+    /**
+     * Retrieves all addresses for the authenticated user.
+     *
+     * @return A list of addresses.
+     */
     @Override
     public List<GetAddressResponse> getAddress() {
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userIdFromToken = CommonUtilityMethods.getUserIdFromToken(authentication);
 
-        Optional<List<AddressDao>> addresses = addressRepository
-                .findByUserId(userIdFromToken);
+        Optional<List<AddressDao>> addresses = addressRepository.findByUserId(userIdFromToken);
 
         List<GetAddressResponse> responseList = new ArrayList<>();
 
@@ -78,6 +84,11 @@ public class AddressServiceImpl implements AddressService {
         return new ArrayList<>();
     }
 
+    /**
+     * Updates an existing address.
+     *
+     * @param updateAddressRequest The request object containing the updated address details.
+     */
     @Override
     public void updateAddress(UpdateAddressRequest updateAddressRequest) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -108,6 +119,12 @@ public class AddressServiceImpl implements AddressService {
         addressRepository.save(addressDao);
     }
 
+    /**
+     * Retrieves an address by its ID.
+     *
+     * @param addressId The ID of the address to retrieve.
+     * @return The address details.
+     */
     @Override
     public GetAddressResponse getAddressById(String addressId) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -138,6 +155,11 @@ public class AddressServiceImpl implements AddressService {
         throw new RuntimeException("Address doesn't exist");
     }
 
+    /**
+     * Deletes an address by its ID.
+     *
+     * @param addressId The ID of the address to delete.
+     */
     @Override
     public void deleteAddressById(String addressId) {
         getAddressById(addressId);

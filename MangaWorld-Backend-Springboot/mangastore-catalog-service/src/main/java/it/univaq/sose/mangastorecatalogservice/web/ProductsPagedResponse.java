@@ -1,3 +1,7 @@
+/**
+ * Represents a paged response for products.
+ * Contains the page information and links for pagination.
+ */
 package it.univaq.sose.mangastorecatalogservice.web;
 
 import lombok.Data;
@@ -8,7 +12,7 @@ import java.util.Map;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-08-29
+*
  */
 @Data
 public class ProductsPagedResponse {

@@ -20,8 +20,17 @@ public class AuditingConfig {
     }
 }
 
+/**
+ * Implementation of the AuditorAware interface for Spring Security.
+ * This class is responsible for providing the current auditor (user) for auditing purposes.
+ */
 class SpringSecurityAuditAwareImpl implements AuditorAware<String> {
 
+    /**
+     * Retrieves the current auditor (user) from the Spring Security context.
+     *
+     * @return An Optional containing the current auditor (user) if available, or an empty Optional otherwise.
+     */
     @Override
     public Optional<String> getCurrentAuditor() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

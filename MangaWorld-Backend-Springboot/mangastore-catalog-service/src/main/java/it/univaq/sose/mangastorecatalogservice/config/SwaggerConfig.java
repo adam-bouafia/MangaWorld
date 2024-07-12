@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-06
+*
  */
 @Configuration
 @EnableSwagger2
@@ -41,6 +41,11 @@ public class SwaggerConfig {
                 "License of API", "API license URL", Collections.emptyList());
     }
     
+    /**
+     * Configures and returns the Docket object for Swagger API documentation.
+     * 
+     * @return The configured Docket object.
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

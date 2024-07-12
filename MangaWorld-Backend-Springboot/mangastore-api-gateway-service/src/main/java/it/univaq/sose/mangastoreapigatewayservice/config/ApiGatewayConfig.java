@@ -12,6 +12,10 @@ import org.springframework.context.annotation.Configuration;
  * @author: Adam Bouafia, Date : 07-01-2024
 
  */
+/**
+ * Configuration class for the API Gateway.
+ * This class defines the beans required for the API Gateway configuration.
+ */
 @Configuration
 public class ApiGatewayConfig {
 

@@ -16,6 +16,14 @@ import org.springframework.web.filter.GenericFilterBean;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class is responsible for adding the trace ID to the HTTP response headers.
+ * It is a filter that intercepts the request and response and adds the trace ID
+ * to the response headers if a current span exists in the tracer.
+ * 
+ * The trace ID is returned in a hex form for readability. Additionally, custom tags
+ * can be added to the current span.
+ */
 @Component
 @Order(TraceWebServletAutoConfiguration.TRACING_FILTER_ORDER + 1)
 public class AddTraceIdToHttpResponseConfig extends GenericFilterBean {

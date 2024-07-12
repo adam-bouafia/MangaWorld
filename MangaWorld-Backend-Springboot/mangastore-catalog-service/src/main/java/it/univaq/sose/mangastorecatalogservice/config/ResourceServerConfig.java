@@ -8,6 +8,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
+/**
+ * This class is responsible for configuring the resource server in the MangaStore catalog service.
+ * It extends the GlobalResourceServerConfig class and overrides its methods to customize the configuration.
+ */
 @Configuration
 public class ResourceServerConfig extends GlobalResourceServerConfig {
     

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * This class implements the RoleService interface and provides the implementation for managing roles.
+ */
 @Service
 public class RoleServiceImpl implements RoleService {
 

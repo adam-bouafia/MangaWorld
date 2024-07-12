@@ -21,15 +21,30 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-20
+ * 
+ */
+/**
+ * This class represents the Swagger configuration for the billing service.
+ * It enables Swagger 2 and provides the necessary configurations for generating API documentation.
+ * The API documentation includes information about the REST APIs, security schemes, and authorization scopes.
+ * It also defines the contact information and license details for the API.
  */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
     
+    /**
+     * The API information for the billing service.
+     * It includes the title, version, contact information, and license details.
+     * This information is used for generating the API documentation.
+     */
     @Autowired
     ApiInfo apiInfo;
     
+    /**
+     * Creates an instance of ApiInfo with the necessary information for the billing service API.
+     * @return The ApiInfo instance.
+     */
     @Bean
     ApiInfo apiInfo() {
         return new ApiInfo(
@@ -41,6 +56,11 @@ public class SwaggerConfig {
                 "License of API", "API license URL", Collections.emptyList());
     }
     
+    /**
+     * Creates a Docket instance for configuring Swagger.
+     * It specifies the documentation type, security schemes, security context, and API selection criteria.
+     * @return The Docket instance.
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -53,16 +73,29 @@ public class SwaggerConfig {
                        .apiInfo(apiInfo);
     }
     
+    /**
+     * Creates a SecurityContext instance for specifying the security references and path selectors.
+     * @return The SecurityContext instance.
+     */
+    @SuppressWarnings("deprecation")
     private SecurityContext securityContext() {
         return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(PathSelectors.regex("/.*")).build();
     }
     
+    /**
+     * Creates a list of SecurityReference instances for specifying the authorization scopes.
+     * @return The list of SecurityReference instances.
+     */
     private List<SecurityReference> defaultAuth() {
         final AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         final AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
         return Collections.singletonList(new SecurityReference("Bearer", authorizationScopes));
     }
     
+    /**
+     * Creates an instance of ApiKey for specifying the security scheme.
+     * @return The ApiKey instance.
+     */
     private ApiKey apiKey() {
         return new ApiKey("Bearer", "Authorization", "header");
     }

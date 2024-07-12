@@ -19,6 +19,9 @@ import javax.validation.Valid;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * The AuthController class handles authentication and authorization related endpoints.
+ */
 @RestController
 @CrossOrigin
 public class AuthController {

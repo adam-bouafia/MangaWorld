@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-30
+*
  */
 
 @Configuration
@@ -27,6 +27,11 @@ public class GlobalSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
 
+    /**
+     * Creates and returns a BCryptPasswordEncoder instance.
+     *
+     * @return the BCryptPasswordEncoder instance
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

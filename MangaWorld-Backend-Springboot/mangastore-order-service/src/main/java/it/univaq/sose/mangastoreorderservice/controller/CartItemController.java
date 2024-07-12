@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-17
+*
+ */
+/**
+ * The controller class for managing cart items.
  */
 @RestController
 @CrossOrigin
@@ -24,18 +27,33 @@ public class CartItemController {
     @Autowired
     CartItemService cartItemService;
     
+    /**
+     * Adds a cart item.
+     * 
+     * @param cartItemRequest The request object containing the cart item details.
+     */
     @PostMapping("/cart/cartItem")
     @ResponseStatus(value = HttpStatus.OK)
     public void addCartItem(@RequestBody CartItemRequest cartItemRequest) {
         cartItemService.addCartItem(cartItemRequest);
     }
     
+    /**
+     * Removes a cart item.
+     * 
+     * @param cartItemId The ID of the cart item to be removed.
+     */
     @DeleteMapping("/cart/cartItem/{cartItemId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeCartItem(@PathVariable(value = "cartItemId") String cartItemId) {
         cartItemService.removeCartItem(cartItemId);
     }
     
+    /**
+     * Removes all cart items from a cart.
+     * 
+     * @param cartId The ID of the cart from which all cart items should be removed.
+     */
     @DeleteMapping("/cart/cartItem")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeAllCartItems(@RequestParam(value = "cartId") String cartId) {

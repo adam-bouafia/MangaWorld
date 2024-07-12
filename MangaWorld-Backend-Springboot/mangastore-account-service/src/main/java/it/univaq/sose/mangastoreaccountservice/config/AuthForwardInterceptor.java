@@ -17,6 +17,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 This is required for Feign clients to make request to services.
 It takes the token from header and set the header in the feign request header.
  */
+/**
+ * This class is an implementation of the RequestInterceptor interface and is responsible for forwarding the Authorization header in the outgoing requests.
+ * It retrieves the Authorization header from the incoming request and sets it as the Authorization header in the outgoing request template.
+ */
 @Component
 public class AuthForwardInterceptor implements RequestInterceptor {
 

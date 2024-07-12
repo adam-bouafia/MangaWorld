@@ -1,3 +1,10 @@
+/**
+ * Represents a request to create a payment.
+ * Contains information about the amount, currency, and payment method ID.
+ * 
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastorecommons.web;
 
 import lombok.AllArgsConstructor;

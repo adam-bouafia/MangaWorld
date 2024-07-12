@@ -36,7 +36,11 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-20
+ * 
+ */
+/**
+ * Implementation of the OrderService interface that provides methods for creating and previewing orders.
+ * This class handles the business logic for creating and processing orders in the MangaStore application.
  */
 @Service
 public class OrderServiceImpl implements OrderService {

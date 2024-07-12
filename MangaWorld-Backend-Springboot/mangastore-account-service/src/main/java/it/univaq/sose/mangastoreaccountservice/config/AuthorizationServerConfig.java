@@ -38,6 +38,10 @@ import static org.apache.commons.lang.CharEncoding.UTF_8;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Configuration class for the Authorization Server.
+ * This class extends the AuthorizationServerConfigurerAdapter class and provides the necessary configurations for the authorization server.
+ */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {

@@ -29,6 +29,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * The UserController class handles the HTTP requests related to user management.
+ * It provides endpoints for creating, updating, retrieving, and deleting user information.
+ */
 @RestController
 @CrossOrigin
 public class UserController {

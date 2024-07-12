@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-07-02
+*
+ */
+/**
+ * The CartController class handles HTTP requests related to the shopping cart functionality.
  */
 @RestController
 @CrossOrigin

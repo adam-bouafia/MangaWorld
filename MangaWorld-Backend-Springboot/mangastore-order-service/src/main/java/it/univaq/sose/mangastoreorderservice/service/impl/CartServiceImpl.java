@@ -14,7 +14,11 @@ import java.util.Optional;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-07-08
+*
+ */
+/**
+ * This class implements the CartService interface and provides the functionality
+ * to manage user shopping carts.
  */
 @Service
 public class CartServiceImpl implements CartService {

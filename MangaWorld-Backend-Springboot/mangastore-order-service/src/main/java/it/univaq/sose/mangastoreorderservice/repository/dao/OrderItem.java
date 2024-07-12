@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-18
+*
  */
 @Entity
 @Table(name = "ORDER_ITEM")

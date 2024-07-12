@@ -17,6 +17,12 @@ import java.io.IOException;
 /**
 @author Adam Bouafia, Date : 29-06-2024
  */
+/**
+ * This class is a filter that enables Cross-Origin Resource Sharing (CORS) for HTTP requests.
+ * It allows requests from any origin, with any method, and with any headers.
+ * The filter sets the necessary CORS headers in the response to allow cross-origin requests.
+ * If the request method is OPTIONS, it sets the response status to 200 (OK).
+ */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SimpleCorsFilter implements Filter {

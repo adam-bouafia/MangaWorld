@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-17
+*
  */
 @Entity
 @Table(name = "CART")

@@ -22,6 +22,10 @@ import org.hibernate.annotations.GenericGenerator;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Represents a role in the application.
+ * A role defines the permissions and access rights of a user.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

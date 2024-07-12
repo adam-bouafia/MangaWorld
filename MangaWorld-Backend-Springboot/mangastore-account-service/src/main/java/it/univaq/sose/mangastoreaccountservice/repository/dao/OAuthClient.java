@@ -16,6 +16,10 @@ import org.hibernate.annotations.GenericGenerator;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Represents an OAuth client in the system.
+ * This class is used to store information about OAuth clients, such as client ID, client secret, grant types, authorities, scope, and resource IDs.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

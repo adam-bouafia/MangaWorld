@@ -1,3 +1,9 @@
+/**
+ * This class represents the configuration for the global resource server.
+ * It extends the ResourceServerConfigurerAdapter class provided by Spring Security.
+ * The configuration includes the authorization rules for different endpoints and the token services.
+ * It also includes the conversion of JWT access tokens and the extraction of authentication information.
+ */
 package it.univaq.sose.mangastorecommons.security;
 
 import org.apache.commons.io.IOUtils;
@@ -27,7 +33,7 @@ import static org.apache.commons.lang.CharEncoding.UTF_8;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-06-30
+*
  */
 
 @Configuration

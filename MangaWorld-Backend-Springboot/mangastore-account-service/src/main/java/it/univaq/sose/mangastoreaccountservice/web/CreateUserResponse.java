@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
  */
+/**
+ * Represents the response object for creating a user.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

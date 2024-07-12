@@ -1,3 +1,10 @@
+/**
+ * Represents a response object for creating a payment.
+ * Contains information about the payment ID, payment date, capture status, and receipt URL.
+ *
+ * @author Adam Bouafia
+ * @date 29-06-2024
+ */
 package it.univaq.sose.mangastorecommons.web;
 
 import lombok.AllArgsConstructor;

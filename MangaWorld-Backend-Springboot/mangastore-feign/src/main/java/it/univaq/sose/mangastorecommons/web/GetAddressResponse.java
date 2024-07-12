@@ -1,3 +1,10 @@
+/**
+ * Represents a response object containing address information.
+ * This class is used to store the details of an address retrieved from the backend.
+ * 
+ * @author Adam Bouafia
+ * @date 07-01-2024
+ */
 package it.univaq.sose.mangastorecommons.web;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author: Adam Bouafia, Date : 07-01-2024
- * Date : 2019-09-21
+*
  */
 @Data
 @Builder
