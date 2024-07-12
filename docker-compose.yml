@@ -1,4 +1,3 @@
-version: '3.8'
 services:
 
   # Database Service
@@ -36,6 +35,8 @@ services:
   mangastore-zuul-api-gateway-server:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-api-gateway-service
+      args:
+        JAR_FILE: mangastore-api-gateway-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-zuul-api-gateway-server
     container_name: mangastore-zuul-api-gateway-server
@@ -53,6 +54,8 @@ services:
   mangastore-account-service:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-account-service
+      args:
+        JAR_FILE: mangastore-account-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-account-service
     container_name: mangastore-account-service
@@ -70,6 +73,8 @@ services:
   mangastore-billing-service:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-billing-service
+      args:
+        JAR_FILE: mangastore-billing-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-billing-service
     container_name: mangastore-billing-service
@@ -87,6 +92,8 @@ services:
   mangastore-catalog-service:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-catalog-service
+      args:
+        JAR_FILE: mangastore-catalog-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-catalog-service
     container_name: mangastore-catalog-service
@@ -104,6 +111,8 @@ services:
   mangastore-order-service:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-order-service
+      args:
+        JAR_FILE: mangastore-order-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-order-service
     container_name: mangastore-order-service
@@ -121,6 +130,8 @@ services:
   mangastore-payment-service:
     build:
       context: ./MangaWorld-Backend-Springboot/mangastore-payment-service
+      args:
+        JAR_FILE: mangastore-payment-service-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
     image: mangastore-payment-service
     container_name: mangastore-payment-service
